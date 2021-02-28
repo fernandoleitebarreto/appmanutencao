@@ -1,5 +1,5 @@
 unit Streams;
-
+
 interface
 
 uses
@@ -37,7 +37,6 @@ begin
   try
     Label1.Caption := 'Size: ' + (S.Size div 1024).ToString + ' MB';
   finally
-    Application.ProcessMessages;
     FreeAndNil(S);
   end;
 end;
@@ -68,7 +67,8 @@ end;
 
 procedure TfStreams.FormCreate(Sender: TObject);
 begin
-  FPath := IncludeTrailingPathDelimiter(ExtractFilePath(ParamStr(0))) + 'pdf.pdf';
+  FPath := IncludeTrailingPathDelimiter(ExtractFilePath(ParamStr(0))) +
+    'pdf.pdf';
 end;
 
 function TfStreams.LoadStream: TMemoryStream;
@@ -81,3 +81,4 @@ begin
 end;
 
 end.
+
